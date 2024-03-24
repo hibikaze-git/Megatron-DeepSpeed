@@ -1194,9 +1194,9 @@ def train(forward_step_func, model, optimizer, opt_param_scheduler,
         if args.curriculum_learning_legacy and not args.no_pipeline_parallel:
             curriculum_seqlen = args.curriculum_scheduler.update_difficulty( \
                     args.iteration + 1)
-            if iteration == 0 or curriculum_seqlen != args.curriculum_seqlen:
-                if args.use_rotary_position_embeddings:
-                    update_rotary_pos_emb(curriculum_seqlen)
+            #if iteration == 0 or curriculum_seqlen != args.curriculum_seqlen:
+            #    if args.use_rotary_position_embeddings:
+            #        update_rotary_pos_emb(curriculum_seqlen)
             args.curriculum_seqlen = curriculum_seqlen
         args.curr_iteration = iteration
         loss_dict, skipped_iter, grad_norm, num_zeros_in_grad = \
